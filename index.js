@@ -38,5 +38,3 @@ const http = chatRoomWebSocket(app, MongoClient, url, sessionMiddleware);
 http.listen(3000, () => {
   console.log("server is running");
 });
-
-// terminal bala biar --- add a new comment for test
