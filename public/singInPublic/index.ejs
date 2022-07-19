@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="singInPublic/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <br><br><br><br><br>
+    <div>
+        <form method="post" action="/infoSingIn">
+            <div>
+                <h1>singIn</h1>
+            </div>
+            <input placeholder="userName" oninput="typinggg()" id="input1" name="userNameSingIn" type="text">
+            <input placeholder="password" oninput="typinggg()" id="input2" name="passWordSingIn" type="text">
+            <button disabled id="btnSubmit" type="submit">singIn</button>
+            <hr>
+            <p><%= noteSingIn %></p>
+                <a href="digikala.com">singUp</a>
+        </form>
+    </div>
+</body>
+<script src="singInPublic/script.js"></script>
+</html>

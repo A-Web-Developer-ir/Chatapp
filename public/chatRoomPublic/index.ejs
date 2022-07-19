@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chatRoomPublic/style.css">
+    <title>chatApp</title>
+</head>
+
+<body onload="chatttBox()">
+    <div class="all">
+        <div class="onlines">
+            <span>onlines: &nbsp;</span>
+            <span id="onlines"></span>
+        </div>
+        <div id="chat-box" class="chatBox">
+            <% for(let i of data){ %>
+                <div class="container">
+                    <div class="message">
+                        <span class="name">
+                            <%= i.name %>
+                        </span>
+                        <span class="time">
+                            <%= i.time %>
+                        </span><br>
+                        <p class="text">
+                            <%= i.message %>
+                        </p>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+
+        <form id="chat-Form" class="form">
+            <input placeholder="متن پیام..." name="message" id="message-Input" type="text"><button
+                type="submit">ارسال</button>
+        </form>
+    </div>
+</body>
+<script src="chatRoomPublic/socket.io.min.js"></script>
+<script src="chatRoomPublic/script.js"></script>
+
+</html>
