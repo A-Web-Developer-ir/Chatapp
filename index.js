@@ -19,7 +19,7 @@ const sessionMiddleware = session({
 });
 app.use(sessionMiddleware);
 
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
 
 app.set("view engine", "ejs");
 app.set("views", relativePath("views"));
