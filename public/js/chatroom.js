@@ -58,3 +58,8 @@ function chatttBox() {
   var objDiv = document.getElementById("chat-box");
   objDiv.scrollTop = objDiv.scrollHeight;
 }
+
+window.addEventListener("load", () => {
+  const { scrollHeight } = document.body;
+  window.scrollTo({ left: 0, top: scrollHeight, behavior: "smooth" });
+})
