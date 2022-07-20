@@ -11,21 +11,20 @@
     <script src="/public/js/signup.js" defer></script>
 </head>
 
-<body>
-    <br><br><br><br><br>
-    <div>
-        <form method="post" action="/infoSingUp">
+<body class="bg-gradient-to-br from-pink-100 to-pink-300">
+    <div class="h-screen flex justify-center items-center">
+        <form class="w-full max-w-xs bg-white shadow-md px-4 py-3 rounded-lg" method="post" action="/infoSingUp">
             <div>
-                <h1>singUp</h1>
+                <h3 class="text-center text-2xl font-bold text-gray-600 mb-4">Sign up</h3>
             </div>
-            <input placeholder="userName" oninput="typinggg()" id="input1" name="userNameSingUp" type="text">
-            <input placeholder="password" oninput="typinggg()" id="input2" name="passWordSingUp" type="text">
-            <button disabled id="btnSubmit" type="submit">singUp</button>
-            <hr>
+            <input class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-2 border-solid border-pink-100 focus:border-pink-300 border-2" placeholder="Username" oninput="typinggg()" id="input1" name="userNameSingUp" type="text">
+            <input class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-4 border-solid border-pink-100 focus:border-pink-300 border-2" placeholder="Password" oninput="typinggg()" id="input2" name="passWordSingUp" type="text">
+            <button class="bg-pink-400 w-full rounded px-2 py-1.5 text-white cursor-pointer" disabled id="btnSubmit" type="submit">Sign up</button>
+
             <p>
                 <%= noteSingUp %>
             </p>
-            <a href="digikala.com">singIn</a>
+            <a href="/singin" class="block w-full text-center py-1.5 px-2">Sign in</a>
         </form>
     </div>
 </body>
