@@ -4,12 +4,12 @@ const app = Router();
 module.exports = (MongoClient, url) => {
   app.get("/singin", (req, res) => {
     if (req.query.RESULT === "no") {
-      res.render("singInPublic/index", {
+      res.render("pages/signin", {
         noteSingIn:
           "Login failed.  If you have not registered before, you can register with this link:",
       });
     } else {
-      res.render("singInPublic/index", { noteSingIn: "" });
+      res.render("pages/signin", { noteSingIn: "" });
     }
   });
 
