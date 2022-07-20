@@ -6,11 +6,14 @@ const MongoClient = require("mongodb").MongoClient;
 const url = "mongodb://localhost:27017/";
 
 // imports
-const chatRoomRouter = require("./routes/chatRoom");
 const chatRoomWebSocket = require("./socket/chatRoom");
-const mainPage = require("./routes/main");
-const singInPage = require("./routes/singIn");
-const singUpPage = require("./routes/singUp");
+const {
+  chatRoomRouter,
+  mainPage,
+  signInPage,
+  signUpPage,
+} = require("./routes");
+const { relativePath } = require("./utils/relative_path");
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -24,13 +27,13 @@ app.use(sessionMiddleware);
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
-app.set("views", "public");
+app.set("views", relativePath("views"));
 
 // routes
 app.use(chatRoomRouter(MongoClient, url));
 app.use(mainPage);
-app.use(singInPage(MongoClient, url));
-app.use(singUpPage(MongoClient, url));
+app.use(signInPage(MongoClient, url));
+app.use(signUpPage(MongoClient, url));
 
 //socket
 const http = chatRoomWebSocket(app, MongoClient, url, sessionMiddleware);
