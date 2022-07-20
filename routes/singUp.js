@@ -6,11 +6,11 @@ module.exports = (MongoClient, url) => {
 
     app.get("/singup", (req, res) => {
         if (req.query.RESULT === "yes") {
-            res.render("pages/signup", { noteSingUp: "Registration successful. Now you can login with this link."})
+            res.render("page/signup", { noteSingUp: "Registration successful. Now you can login with this link."})
         } if (req.query.RESULT === "no") {
-            res.render("pages/signup", { noteSingUp: "Registration failed. Someone already exists with this username."})
+            res.render("page/signup", { noteSingUp: "Registration failed. Someone already exists with this username."})
         } else {
-            res.render("pages/signup", { noteSingUp: ""})
+            res.render("page/signup", { noteSingUp: ""})
         }
     })
 
