@@ -14,7 +14,7 @@ module.exports = (MongoClient, url) => {
           .find({})
           .toArray(function (err, result) {
             if (err) throw err;
-            res.render("page/main_public", { data: result });
+            res.render("page/chatroom_public", { data: result });
             db.close();
           });
       });
