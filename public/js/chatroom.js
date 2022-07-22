@@ -29,20 +29,20 @@ chatForm.addEventListener("submit", (e) => {
 
 // listen
 
-socket.on("chat-message", (newData) => {
+socket.on("chat-message", (dataaa) => {
   chatBox.innerHTML += `
     <div
         class="flex flex-col items-stretch gap-1.5 bg-pink-100 px-4 py-1.5 rounded-lg shadow border-solid border-pink-300 border select-none">
         <div class="flex flex-row gap-3 items-stretch w-full">
             <span class="text-gray-500 text-xs">
-                ${newData.name}
+                ${dataaa.name}
             </span>
             <span class="text-gray-500 text-xs">
-                ${newData.time}
+                ${dataaa.time}
             </span>
         </div>
         <p dir="auto" class="text-gray-700">
-            ${newData.message}
+            ${dataaa.message}
         </p>
     </div>
     `;
