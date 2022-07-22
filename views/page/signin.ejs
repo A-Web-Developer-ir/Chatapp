@@ -12,18 +12,18 @@
 
 </head>
 
-<body>
+<body class="bg-gradient-to-br from-pink-100 to-pink-300">
     
-    <div class="h-screen flex justify-center items-center">
-        <form class="w-full max-w-xs bg-pink-200 shadow-md px-4 py-3 rounded-lg" method="post" action="/infoSingIn">
+    <div class="h-screen flex justify-center items-center p-4">
+        <form class="w-full max-w-xs bg-white shadow-md px-4 py-3 rounded-lg" method="post" action="/infoSingIn">
             <div>
-                <h1 class="text-center text-2xl font-bold text-pink-900 mb-4">Sign in</h1>
+                <h3 class="text-center text-2xl font-bold text-gray-600 mb-4">Sign in</h3>
             </div>
-            <input class="block w-full bg-pink-100 py-1.5 px-2 rounded mb-2" placeholder="Username" oninput="typinggg()" id="input1" name="userNameSingIn" type="text">
-            <input class="block w-full bg-pink-100 py-1.5 px-2 rounded mb-4" placeholder="Password" oninput="typinggg()" id="input2" name="passWordSingIn" type="text">
+            <input class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-2 border-solid border-pink-100 focus:border-pink-300 border-2 transition duration-200" placeholder="Username" oninput="typinggg()" id="input1" name="userNameSingIn" type="text">
+            <input class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-4 border-solid border-pink-100 focus:border-pink-300 border-2 transition duration-200" placeholder="Password" oninput="typinggg()" id="input2" name="passWordSingIn" type="text">
             <button disabled id="btnSubmit" type="submit" class="bg-pink-400 w-full rounded px-2 py-1.5 text-white cursor-pointer">Sign in</button>
             
-            <p>
+            <p dir="auto">
                 <%= noteSingIn %>
             </p>
             <a href="/singup" class="block w-full text-center py-1.5 px-2">Sign up</a>
