@@ -27,10 +27,10 @@ app.set("view engine", "ejs");
 app.set("views", relativePath("views"));
 
 // routes
-app.use(chatRoomRouter(url));
+app.use(chatRoomRouter);
 app.use(mainPage);
-app.use(signInPage(url));
-app.use(signUpPage(url));
+app.use(signInPage);
+app.use(signUpPage);
 
 //socket
 const http = chatRoomWebSocket(app, url, sessionMiddleware);

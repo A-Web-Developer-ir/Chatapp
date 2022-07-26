@@ -2,7 +2,7 @@ const { Router } = require("express");
 const messageSchema = require("../schemas/messageSchema");
 const app = Router();
 
-module.exports = (url) => {
+module.exports = () => {
   app.get("/chatroom", async(req, res) => {
     if (!req.session.loggedIn) {
       res.redirect("/singin");

@@ -1,12 +1,11 @@
 const http = require("http")
 
 //
-module.exports = (app, url, sessionMiddleware) => {
+module.exports = (app, sessionMiddleware) => {
 
   const { Server } = require('socket.io');
   const server = http.createServer(app);
   const io = new Server(server);
-  const mongoose = require('mongoose');
   const messageSchema = require('../schemas/messageSchema');
   //
 

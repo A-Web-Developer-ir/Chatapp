@@ -3,7 +3,7 @@ const userSchema = require('../schemas/userSchema');
 const app = Router();
 
 
-module.exports = (url) => {
+module.exports = () => {
 
     app.get("/singup", (req, res) => {
         if (req.query.RESULT === "yes") {

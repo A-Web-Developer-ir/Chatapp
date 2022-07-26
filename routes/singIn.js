@@ -2,7 +2,7 @@ const { Router } = require("express");
 const userSchema = require('../schemas/userSchema');
 const app = Router();
 
-module.exports = (url) => {
+module.exports = () => {
   app.get("/singin", (req, res) => {
     if (req.query.RESULT === "no") {
       res.render("page/signin", {
