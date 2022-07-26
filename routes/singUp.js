@@ -1,9 +1,10 @@
 const { Router } = require('express');
 const mongoose = require('mongoose');
+const signupSchema = require('../schemas/signupSchema');
 const app = Router();
 
 
-module.exports = (MongoClient, url) => {
+module.exports = (url) => {
 
     app.get("/singup", (req, res) => {
         if (req.query.RESULT === "yes") {
@@ -21,7 +22,6 @@ module.exports = (MongoClient, url) => {
 
             mongoose.connect(url)
             const result = mongoose.model("userInfo")
-
 
                 let users = [];
                 const data = result;
