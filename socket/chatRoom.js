@@ -34,7 +34,6 @@ module.exports = (app, url, sessionMiddleware) => {
       const objNameOfUser = { name: `${nameOfUser}` }
       var dataa = Object.assign(data, objNameOfUser)
 
-      mongoose.connect(url)
       const message = new messageSchema(dataa)
       await message.save()
 

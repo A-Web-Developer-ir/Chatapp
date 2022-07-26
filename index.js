@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 // database
+const mongoose = require('mongoose');
 const url = "mongodb://localhost:27017/chatApp";
 
 // imports
@@ -10,6 +11,7 @@ const { chatRoomRouter, mainPage, signInPage, signUpPage } = require("./routes")
 const { relativePath } = require("./utils/relative_path");
 
 app.use(express.urlencoded({ extended: true }));
+mongoose.connect(url)
 
 const sessionMiddleware = session({
   secret: "Keep it secret",

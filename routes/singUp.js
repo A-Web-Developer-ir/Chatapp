@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const mongoose = require('mongoose');
 const userSchema = require('../schemas/userSchema');
 const app = Router();
 
@@ -20,7 +19,6 @@ module.exports = (url) => {
         const user = req.body.userNameSingUp,
             passWord = req.body.passWordSingUp;
 
-            mongoose.connect(url)
             const result = await userSchema.find({});
 
                 let users = [];
@@ -32,7 +30,6 @@ module.exports = (url) => {
                 if (checkUser) {
                     res.redirect("/singup?RESULT=no")
                 } else {
-                    mongoose.connect(url)
                     const userrr = new userSchema({ user: `${user}`, passWord: `${passWord}` })
                     await userrr.save()
 
