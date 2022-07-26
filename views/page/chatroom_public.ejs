@@ -17,10 +17,11 @@
         <div class="fixed top-0 right-0 left-0 h-12 bg-pink-200 z-10 flex justify-center items-center shadow-md">
             <p class="text-center text-pink-800">Online: &nbsp; <span id="onlines"></span></p>
         </div>
-        <div id="chat-box" class="flex flex-col items-start gap-3 py-20 px-2">
+        <div id="chat-box" class="flex flex-col items-start gap-3 pt-20 pb-32 px-2">
             <% for(let i of data){ %>
 
                 <div
+                    ondblclick="replay(this)"
                     data-messageId="<%= i._id %>"
                     class="flex flex-col items-stretch gap-1.5 bg-pink-100 px-4 py-1.5 rounded-lg shadow border-solid border-pink-300 border select-none">
                     <div class="flex flex-row gap-3 items-stretch w-full">
@@ -38,13 +39,19 @@
 
                 <% } %>
         </div>
-
-        <form id="chat-Form" class="fixed bottom-0 right-0 left-0 flex flex-row z-10">
-            <input placeholder="متن پیام..." name="message" id="message-Input" type="text"
-                class="grow p-4 bg-pink-200" />
-            <button type="submit"
-                class="bg-pink-500 hover:bg-pink-600 text-white p-4 transition duration-300">ارسال</button>
-        </form>
+        <div class="fixed bottom-0 right-0 left-0 flex flex-col z-10">
+            <div id="replayBox" class="flex-row gap-4 items-center w-full p-3 bg-pink-900 text-white hidden">
+                <p dir="auto" class="grow">سلام داداش</p>
+                <button class="" onclick="unReplay()">x</button>
+            </div>
+            <form id="chat-Form" class="w-full flex flex-row">
+                <input placeholder="متن پیام..." name="message" id="message-Input" type="text"
+                    class="grow p-4 bg-pink-200" />
+                <button type="submit"
+                    class="bg-pink-500 hover:bg-pink-600 text-white p-4 transition duration-300">ارسال</button>
+            </form>
+        </div>
+        
     </div>
 </body>
 </html>
