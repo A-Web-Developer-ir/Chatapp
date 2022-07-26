@@ -1,4 +1,4 @@
-
+import {replayId} from "./replay.js";
 
 const socket = io();
 
@@ -24,6 +24,7 @@ chatForm.addEventListener("submit", (e) => {
     socket.emit("chat-message", {
       message: messageInput.value,
       time: messageTime,
+      replayId: replayId
     });
     messageInput.value = "";
   }
@@ -34,6 +35,7 @@ chatForm.addEventListener("submit", (e) => {
 socket.on("chat-message", (data) => {
   chatBox.innerHTML += `
     <div
+        ondblclick="replay(this)"
         data-messageId="${data._id}"
         class="flex flex-col items-stretch gap-1.5 bg-pink-100 px-4 py-1.5 rounded-lg shadow border-solid border-pink-300 border select-none">
         <div class="flex flex-row gap-3 items-stretch w-full">
@@ -65,6 +67,4 @@ window.chatttBox = function () {
 window.addEventListener("load", () => {
   const { scrollHeight } = document.body;
   window.scrollTo({ left: 0, top: scrollHeight, behavior: "smooth" });
-})
-
-import {myFunction} from "./replay.js";
+});
