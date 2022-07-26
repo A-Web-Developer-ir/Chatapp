@@ -21,7 +21,7 @@ module.exports = (url) => {
             passWord = req.body.passWordSingUp;
 
             mongoose.connect(url)
-            const result = await userInfo.find({});
+            const result = await signupSchema.find({});
 
                 let users = [];
                 const data = result;
