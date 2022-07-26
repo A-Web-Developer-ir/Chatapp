@@ -2,9 +2,6 @@ const { Router } = require('express');
 const userSchema = require('../schemas/userSchema');
 const app = Router();
 
-
-module.exports = () => {
-
     app.get("/singup", (req, res) => {
         if (req.query.RESULT === "yes") {
             res.render("page/signup", { noteSingUp: "Registration successful. Now you can login with this link."})
@@ -36,5 +33,4 @@ module.exports = () => {
                     res.redirect("/singup?RESULT=yes")
                 }
     })
-    return app;
-}
+    module.exports = app;

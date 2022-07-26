@@ -33,7 +33,7 @@ app.use(signInPage);
 app.use(signUpPage);
 
 //socket
-const http = chatRoomWebSocket(app, url, sessionMiddleware);
+const http = chatRoomWebSocket(app, sessionMiddleware);
 
 http.listen(3000, () => {
   console.log("server is running");
