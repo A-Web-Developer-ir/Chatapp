@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const mongoose = require('mongoose');
-const signupSchema = require('../schemas/signupSchema');
+const userSchema = require('../schemas/userSchema');
 const app = Router();
 
 
@@ -21,7 +21,7 @@ module.exports = (url) => {
             passWord = req.body.passWordSingUp;
 
             mongoose.connect(url)
-            const result = await signupSchema.find({});
+            const result = await userSchema.find({});
 
                 let users = [];
                 const data = result;
@@ -33,7 +33,7 @@ module.exports = (url) => {
                     res.redirect("/singup?RESULT=no")
                 } else {
                     mongoose.connect(url)
-                    const userrr = new signupSchema({ user: `${user}`, passWord: `${passWord}` })
+                    const userrr = new userSchema({ user: `${user}`, passWord: `${passWord}` })
                     await userrr.save()
 
                     res.redirect("/singup?RESULT=yes")

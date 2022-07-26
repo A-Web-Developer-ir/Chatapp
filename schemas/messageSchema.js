@@ -7,4 +7,4 @@ const messageSchema = new mongoose.Schema({
     replayedTo: String
 })
 
-module.exports = mongoose.model("chatList", messageSchema)
+module.exports = mongoose.model("chatList", messageSchema, "chatList")

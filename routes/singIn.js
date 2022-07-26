@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const mongoose = require("mongoose");
+const userSchema = require('../schemas/userSchema');
 const app = Router();
 
 module.exports = (url) => {
@@ -19,7 +20,7 @@ module.exports = (url) => {
       passWord = req.body.passWordSingIn;
 
     mongoose.connect(url)
-    const result = await chatList.find({});
+    const result = await userSchema.find({});
 
     let users = [];
     let passWords = [];

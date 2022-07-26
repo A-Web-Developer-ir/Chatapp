@@ -5,4 +5,4 @@ const userSchema = new mongoose.Schema({
     passWord: String
 })
 
-module.exports = mongoose.model("userInfo", userSchema)
+module.exports = mongoose.model("userInfo", userSchema, "userInfo")
