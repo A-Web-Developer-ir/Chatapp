@@ -6,12 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/styles.css">
-    <title>Document</title>
+    <title>Chat App</title>
+    <style>
+        .card:hover .card-open {
+            box-shadow: 0px 0.7rem 1px -0.066rem rgb(190 24 93);
+            transform: perspective(550px) rotateX(80deg);
+        }
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
 </head>
 
 <body>
-    <p>wellcom to the chatApp!</p>
-    <a href="/chatroom">openChatRoom</a>
+    <div class="min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center gap-4">
+        <p class="bg-gradient-to-r from-pink-900 to-pink-600 text-transparent bg-clip-text">Welcome to the Chat App!</p>
+        <div class="card relative w-44 h-44">
+            <div class="flex justify-center items-center origin-top absolute inset-0 bg-gradient-to-b from-pink-500 to-pink-400 text-white card-open rounded-lg transition duration-500 z-[1] p-2">
+                <p class="text-center">Open Chat App</p>
+            </div>
+            <div class="w-full h-full bg-pink-200 rounded-lg z-0 grid grid-rows-2 grid-cols-2 gap-3 p-3">
+                <div class="w-full h-full bg-pink-300 rounded"></div>
+                <div class="w-full h-full bg-pink-600 rounded"></div>
+                <div class="w-full h-full bg-pink-800 rounded"></div>
+                <div class="w-full h-full bg-pink-700 rounded"></div>
+            </div>
+            <a href="/chatroom" class="absolute inset-0 z-[2]"></a>
+        </div>
+    </div>
+    
 </body>
 
 </html>
