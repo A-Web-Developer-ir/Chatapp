@@ -28,6 +28,8 @@ chatForm.addEventListener("submit", (e) => {
     });
     messageInput.value = "";
   }
+
+  unReplay();
 });
 
 // listen
@@ -37,7 +39,7 @@ socket.on("chat-message", (data) => {
     <div
         ondblclick="replay(this)"
         data-messageId="${data._id}"
-        class="flex flex-col items-stretch gap-1.5 bg-pink-100 px-4 py-1.5 rounded-lg shadow border-solid border-pink-300 border select-none">
+        class="flex flex-col items-stretch gap-1.5 bg-white px-4 py-1.5 rounded-t-xl rounded-br-xl shadow select-none">
         <div class="flex flex-row gap-3 items-stretch w-full">
             <span class="text-gray-500 text-xs">
                 ${data.name}
