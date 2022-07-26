@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 // database
-const MongoClient = require("mongodb").MongoClient;
 const url = "mongodb://localhost:27017/chatApp";
 
 // imports
@@ -32,7 +31,7 @@ app.use(signInPage(url));
 app.use(signUpPage(url));
 
 //socket
-const http = chatRoomWebSocket(app, MongoClient, url, sessionMiddleware);
+const http = chatRoomWebSocket(app, url, sessionMiddleware);
 
 http.listen(3000, () => {
   console.log("server is running");
