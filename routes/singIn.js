@@ -19,7 +19,7 @@ module.exports = (url) => {
       passWord = req.body.passWordSingIn;
 
     mongoose.connect(url)
-    const result = mongoose.Model("userInfo")
+    const result = await chatList.find({});
 
     let users = [];
     let passWords = [];

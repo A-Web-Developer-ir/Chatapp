@@ -8,7 +8,7 @@ module.exports = (url) => {
       res.redirect("/singin");
     } else {
       mongoose.connect(url)
-      const result = mongoose.model("chatList")
+      const result = await chatList.find({});
       res.render("page/chatroom_public", { data: result });
     }
   });

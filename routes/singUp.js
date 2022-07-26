@@ -21,14 +21,13 @@ module.exports = (url) => {
             passWord = req.body.passWordSingUp;
 
             mongoose.connect(url)
-            const result = mongoose.model("userInfo")
+            const result = await chatList.find({});
 
                 let users = [];
                 const data = result;
                 for (x of data) {
                     users.push(x.user)
                 }
-
                 const checkUser = users.includes(user);
                 if (checkUser) {
                     res.redirect("/singup?RESULT=no")
@@ -36,17 +35,9 @@ module.exports = (url) => {
                     mongoose.connect(url)
                     const userrr = new signupSchema({ user: `${user}`, passWord: `${passWord}` })
                     userrr.save()
-                        dbo.collection("usersInfo").insertOne(myobj, (err) => {
-                            if (err) throw err;
-                            console.log("1 user added");
-                            db.close();
-                        });
-                    });
 
                     res.redirect("/singup?RESULT=yes")
                 }
-            });
-        });
     })
     return app;
 }
