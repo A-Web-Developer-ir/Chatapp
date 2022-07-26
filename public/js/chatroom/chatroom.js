@@ -1,3 +1,5 @@
+import test from "./replay.js";
+
 const socket = io();
 
 //Query DOM
@@ -63,3 +65,5 @@ window.addEventListener("load", () => {
   const { scrollHeight } = document.body;
   window.scrollTo({ left: 0, top: scrollHeight, behavior: "smooth" });
 })
+
+test.myFunction();
