@@ -1,4 +1,4 @@
-import test from "./replay.js";
+
 
 const socket = io();
 
@@ -34,6 +34,7 @@ chatForm.addEventListener("submit", (e) => {
 socket.on("chat-message", (data) => {
   chatBox.innerHTML += `
     <div
+        data-messageId="${data._id}"
         class="flex flex-col items-stretch gap-1.5 bg-pink-100 px-4 py-1.5 rounded-lg shadow border-solid border-pink-300 border select-none">
         <div class="flex flex-row gap-3 items-stretch w-full">
             <span class="text-gray-500 text-xs">
@@ -56,7 +57,7 @@ socket.on("online-users", (onlineUsers) => {
   document.getElementById("onlines").innerHTML = onlineUsers;
 });
 
-function chatttBox() {
+window.chatttBox = function () {
   var objDiv = document.getElementById("chat-box");
   objDiv.scrollTop = objDiv.scrollHeight;
 }
@@ -66,4 +67,4 @@ window.addEventListener("load", () => {
   window.scrollTo({ left: 0, top: scrollHeight, behavior: "smooth" });
 })
 
-test.myFunction();
+import {myFunction} from "./replay.js";

@@ -1,5 +1,5 @@
-export default {
-    myFunction: () => {
-        console.log("TEST");
-    }
+console.log("hllllll");
+
+export function myFunction() {
+
 }
