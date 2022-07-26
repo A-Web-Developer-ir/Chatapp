@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const mongoose = require('mongoose');
 const app = Router();
 
 
@@ -18,11 +19,8 @@ module.exports = (MongoClient, url) => {
         const user = req.body.userNameSingUp,
             passWord = req.body.passWordSingUp;
 
-        MongoClient.connect(url, function (err, db) {
-            if (err) throw err;
-            var dbo = db.db("chatApp");
-            dbo.collection("usersInfo").find({}).toArray(function (err, result) {
-                if (err) throw err;
+            mongoose.connect(url)
+            const result = mongoose.model("userInfo")
 
 
                 let users = [];
@@ -35,13 +33,9 @@ module.exports = (MongoClient, url) => {
                 if (checkUser) {
                     res.redirect("/singup?RESULT=no")
                 } else {
-
-                    MongoClient.connect(url, (err, db) => {
-                        if (err) throw err;
-                        const dbo = db.db("chatApp");
-
-                        const myobj = { user: `${user}`, passWord: `${passWord}` }
-
+                    mongoose.connect(url)
+                    const userrr = new signupSchema({ user: `${user}`, passWord: `${passWord}` })
+                    userrr.save()
                         dbo.collection("usersInfo").insertOne(myobj, (err) => {
                             if (err) throw err;
                             console.log("1 user added");

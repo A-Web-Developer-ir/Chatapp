@@ -3,7 +3,7 @@ const app = express();
 const session = require("express-session");
 // database
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017/";
+const url = "mongodb://localhost:27017/chatApp";
 
 // imports
 const chatRoomWebSocket = require("./socket/chatRoom");
@@ -16,6 +16,7 @@ const sessionMiddleware = session({
   secret: "Keep it secret",
   name: "uniqueSessionID",
   saveUninitialized: false,
+  maxAge: 36000
 });
 app.use(sessionMiddleware);
 
@@ -25,10 +26,10 @@ app.set("view engine", "ejs");
 app.set("views", relativePath("views"));
 
 // routes
-app.use(chatRoomRouter(MongoClient, url));
+app.use(chatRoomRouter(url));
 app.use(mainPage);
-app.use(signInPage(MongoClient, url));
-app.use(signUpPage(MongoClient, url));
+app.use(signInPage(url));
+app.use(signUpPage(url));
 
 //socket
 const http = chatRoomWebSocket(app, MongoClient, url, sessionMiddleware);

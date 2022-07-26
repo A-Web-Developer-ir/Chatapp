@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "build:w": "npx tailwindcss -i ./tailwind/style.css -o ./public/css/styles.css -w"
   },
   "keywords": [],
@@ -16,6 +16,8 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "mongodb": "^4.7.0",
+    "mongoose": "^6.4.7",
+    "nodemon": "^2.0.19",
     "socket.io": "^4.5.1"
   },
   "devDependencies": {
