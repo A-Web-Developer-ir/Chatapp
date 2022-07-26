@@ -24,7 +24,7 @@ chatForm.addEventListener("submit", (e) => {
     socket.emit("chat-message", {
       message: messageInput.value,
       time: messageTime,
-      replayId: replayId
+      replayTo: replayId
     });
     messageInput.value = "";
   }
