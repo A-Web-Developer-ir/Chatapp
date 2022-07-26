@@ -14,7 +14,7 @@ module.exports = (url) => {
     }
   });
 
-  app.post("/infoSingIn", (req, res) => {
+  app.post("/infoSingIn", async(req, res) => {
     const user = req.body.userNameSingIn,
       passWord = req.body.passWordSingIn;
 

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const app = Router();
 
 module.exports = (url) => {
-  app.get("/chatroom", (req, res) => {
+  app.get("/chatroom", async(req, res) => {
     if (!req.session.loggedIn) {
       res.redirect("/singin");
     } else {

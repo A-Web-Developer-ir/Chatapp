@@ -26,7 +26,7 @@ module.exports = (app, url, sessionMiddleware) => {
       io.sockets.emit('online-users', onlineUsers);
     })
 
-    socket.on('chat-message', (data) => {
+    socket.on('chat-message', async(data) => {
 
       // + name
       const session = socket.request.session,
@@ -36,7 +36,7 @@ module.exports = (app, url, sessionMiddleware) => {
 
       mongoose.connect(url)
       const message = new messageSchema(dataa)
-      message.save()
+      await message.save()
 
       io.sockets.emit("chat-message", message)
 
