@@ -21,7 +21,7 @@ module.exports = (url) => {
             passWord = req.body.passWordSingUp;
 
             mongoose.connect(url)
-            const result = await chatList.find({});
+            const result = await userInfo.find({});
 
                 let users = [];
                 const data = result;
@@ -34,7 +34,7 @@ module.exports = (url) => {
                 } else {
                     mongoose.connect(url)
                     const userrr = new signupSchema({ user: `${user}`, passWord: `${passWord}` })
-                    userrr.save()
+                    await userrr.save()
 
                     res.redirect("/singup?RESULT=yes")
                 }
