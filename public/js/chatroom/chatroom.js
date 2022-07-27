@@ -35,9 +35,10 @@ chatForm.addEventListener("submit", (e) => {
 // listen
 
 socket.on("chat-message", (data) => {
-  const replayMessage = replayId
-  ? `<div replay data-replayId=${replayId} class="text-sm text-gray-400"> Replay to ${replayName}: ${replayText}</div>`
-  : ``
+  const replayMessage = data.replayedTo
+  ? `<div replay data-messageId=${data.replayedTo} class="text-sm text-gray-400">Please wait ...</div>`
+  : ``;
+  
   chatBox.innerHTML += `
     <div
         ondblclick="replay(this)"
@@ -60,6 +61,7 @@ socket.on("chat-message", (data) => {
   const { scrollHeight } = document.body;
   window.scrollTo({ left: 0, top: scrollHeight, behavior: "smooth" });
   unReplay();
+  loadReplay();
 });
 
 socket.on("online-users", (onlineUsers) => {
