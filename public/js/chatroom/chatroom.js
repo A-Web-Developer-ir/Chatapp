@@ -1,4 +1,4 @@
-import {replayId} from "./replay.js";
+import {replayId, replayName, replayText} from "./replay.js";
 
 const socket = io();
 
@@ -29,25 +29,29 @@ chatForm.addEventListener("submit", (e) => {
     messageInput.value = "";
   }
 
-  unReplay();
+  
 });
 
 // listen
 
 socket.on("chat-message", (data) => {
+  const replayMessage = replayId
+  ? `<div replay data-replayId=${replayId} class="text-sm text-gray-400"> Replay to ${replayName}: ${replayText}</div>`
+  : ``
   chatBox.innerHTML += `
     <div
         ondblclick="replay(this)"
         data-messageId="${data._id}"
         class="flex flex-col items-stretch gap-1.5 bg-white px-4 py-1.5 rounded-t-xl rounded-br-xl shadow select-none">
         <div class="flex flex-row gap-3 items-stretch w-full">
-            <span class="text-gray-500 text-xs">
+            <span class="text-gray-500 text-xs" name>
                 ${data.name}
             </span>
             <span class="text-gray-500 text-xs">
                 ${data.time}
             </span>
         </div>
+        ${replayMessage}
         <p dir="auto" class="text-gray-700">
             ${data.message}
         </p>
@@ -55,6 +59,7 @@ socket.on("chat-message", (data) => {
     `;
   const { scrollHeight } = document.body;
   window.scrollTo({ left: 0, top: scrollHeight, behavior: "smooth" });
+  unReplay();
 });
 
 socket.on("online-users", (onlineUsers) => {
