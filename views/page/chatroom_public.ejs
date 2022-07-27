@@ -25,13 +25,18 @@
                     data-messageId="<%= i._id %>"
                     class="flex flex-col items-stretch gap-1.5 bg-white px-4 py-1.5 rounded-t-xl rounded-br-xl shadow select-none">
                     <div class="flex flex-row gap-3 items-stretch w-full">
-                        <span class="text-gray-500 text-xs">
+                        <span class="text-gray-500 text-xs" name>
                             <%= i.name %>
                         </span>
                         <span class="text-gray-500 text-xs">
                             <%= i.time %>
                         </span>
                     </div>
+                    <% if (i.replayedTo) { %>
+                        <div dir="auto" replay data-messageId="<%= i.replayedTo %>" class="text-sm text-gray-400">
+                            Please wait ...
+                        </div>
+                    <% } %>
                     <p dir="auto" class="text-gray-700">
                         <%= i.message %>
                     </p>
