@@ -7,7 +7,7 @@ const url = "mongodb://localhost:27017/chatApp";
 
 // imports
 const chatRoomWebSocket = require("./socket/chatRoom");
-const { chatRoomRouter, mainPage, signInPage, signUpPage } = require("./routes");
+const { chatRoomRouter, mainPage, signInPage, signUpPage, infoMessage } = require("./routes");
 const { relativePath } = require("./utils/relative_path");
 
 app.use(express.urlencoded({ extended: true }));
@@ -31,6 +31,7 @@ app.use(chatRoomRouter);
 app.use(mainPage);
 app.use(signInPage);
 app.use(signUpPage);
+app.use(infoMessage)
 
 //socket
 const http = chatRoomWebSocket(app, sessionMiddleware);
