@@ -1,15 +1,32 @@
 export let replayId = null;
+export let replayText = null;
+export let replayName = null;
 
 const replayBox = document.getElementById("replayBox");
 
 window.replay = (messageElement) => {
     replayId = messageElement.dataset.messageid;
-    replayBox.querySelector("p").innerHTML = messageElement.querySelector("p").innerHTML;
+    replayText = messageElement.querySelector("p").innerHTML;
+    replayName = messageElement.querySelector("[name]").innerHTML;
+    replayBox.querySelector("p").innerHTML = replayText;
     replayBox.classList.remove("hidden");
     replayBox.classList.add("flex");
 }
+
 window.unReplay = () => {
     replayId = null;
     replayBox.classList.add("hidden");
     replayBox.classList.remove("flex");
 }
+
+window.loadReplay = async () => {
+    const replayMessages = document.querySelectorAll("[replay]");
+    for (let i = 0; i < replayMessages.length; i++) {
+        const replayMessage = replayMessages[i];
+        const replayInfo = await (await fetch("http://localhost:3000/info/message/?id=" + replayMessage.dataset.messageid )).json();
+        replayMessage.innerHTML = `Replay to ${replayInfo.name}: ${replayInfo.message}`;
+        replayMessage.removeAttribute("replay");
+    }
+}
+
+loadReplay();
