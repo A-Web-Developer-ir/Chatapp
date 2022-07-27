@@ -17,6 +17,7 @@ mongoose.connect(url)
 const sessionMiddleware = session({
   secret: "Keep it secret",
   name: "uniqueSessionID",
+  cookie: { maxAge: 1000 * 60 * 60 },
   saveUninitialized: false,
   store: MongoStore.create({
     mongoUrl: 'mongodb://localhost/chatApp',
