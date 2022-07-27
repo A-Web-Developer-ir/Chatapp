@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 // database
 const mongoose = require('mongoose');
 const url = "mongodb://localhost:27017/chatApp";
@@ -17,7 +18,10 @@ const sessionMiddleware = session({
   secret: "Keep it secret",
   name: "uniqueSessionID",
   saveUninitialized: false,
-  maxAge: 36000
+  store: MongoStore.create({
+    mongoUrl: 'mongodb://localhost/chatApp',
+    ttl: 36000
+  })
 });
 app.use(sessionMiddleware);
 
