@@ -20,7 +20,7 @@ const sessionMiddleware = session({
   saveUninitialized: false,
   store: MongoStore.create({
     mongoUrl: 'mongodb://localhost/chatApp',
-    ttl: 36000
+    ttl: 1000 * 60 * 60
   })
 });
 app.use(sessionMiddleware);
