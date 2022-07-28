@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect(url)
 
 const sessionMiddleware = session({
-  secret: "Keep it secret",
+  secret: process.env.SECRET,
   name: "uniqueSessionID",
   cookie: { maxAge: 1000 * 60 * 60 },
   saveUninitialized: false,
