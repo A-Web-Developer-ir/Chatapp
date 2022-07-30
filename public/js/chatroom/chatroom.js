@@ -1,11 +1,12 @@
-import {replayId, replayName, replayText} from "./replay.js";
+import { replayId } from "./replay.js";
+import {} from "./emoji.js";
 
 const socket = io();
 
 //Query DOM
-const messageInput = document.getElementById("message-Input"),
-  chatForm = document.getElementById("chat-Form"),
-  chatBox = document.getElementById("chat-box");
+const messageInput = document.getElementById("message-Input");
+const chatForm = document.getElementById("chat-Form");
+const chatBox = document.getElementById("chat-box");
 
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -24,21 +25,20 @@ chatForm.addEventListener("submit", (e) => {
     socket.emit("chat-message", {
       message: messageInput.value,
       time: messageTime,
-      replayedTo: replayId
+      replayedTo: replayId,
     });
+
     messageInput.value = "";
   }
-
-  
 });
 
 // listen
 
 socket.on("chat-message", (data) => {
   const replayMessage = data.replayedTo
-  ? `<div replay data-messageId=${data.replayedTo} class="text-sm text-gray-400">Please wait ...</div>`
-  : ``;
-  
+    ? `<div replay data-messageId=${data.replayedTo} class="text-sm text-gray-400">Please wait ...</div>`
+    : ``;
+
   chatBox.innerHTML += `
     <div
         ondblclick="replay(this)"
@@ -71,7 +71,7 @@ socket.on("online-users", (onlineUsers) => {
 window.chatttBox = function () {
   var objDiv = document.getElementById("chat-box");
   objDiv.scrollTop = objDiv.scrollHeight;
-}
+};
 
 window.addEventListener("load", () => {
   const { scrollHeight } = document.body;
