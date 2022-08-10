@@ -1,5 +1,5 @@
 import { replayId } from "./replay.js";
-import {} from "./emoji.js";
+import { registerEmojies } from "./emoji.js";
 
 const socket = io();
 
@@ -7,6 +7,8 @@ const socket = io();
 const messageInput = document.getElementById("message-Input");
 const chatForm = document.getElementById("chat-Form");
 const chatBox = document.getElementById("chat-box");
+
+registerEmojies(messageInput);
 
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
