@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/signin.css">
-    <link rel="stylesheet" href="/public/css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/signin.css" />
+    <link rel="stylesheet" href="/public/css/styles.css" />
     <title>Document</title>
     <script src="/public/js/signin.js" defer></script>
+  </head>
 
-</head>
-
-<body class="bg-gradient-to-br from-pink-100 to-pink-300">
-    
+  <body class="bg-gradient-to-br from-pink-100 to-pink-300">
     <div class="h-screen flex justify-center items-center p-4">
-        <form class="w-full max-w-xs bg-white shadow-md px-4 py-3 rounded-lg" method="post" action="/infoSingIn">
-            <div>
-                <h3 class="text-center text-2xl font-bold text-gray-600 mb-4">Sign in</h3>
-            </div>
-            <input class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-2 border-solid border-pink-100 focus:border-pink-300 border-2 transition duration-200" placeholder="Username" oninput="typinggg()" id="input1" name="userNameSingIn" type="text">
-            <input class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-4 border-solid border-pink-100 focus:border-pink-300 border-2 transition duration-200" placeholder="Password" oninput="typinggg()" id="input2" name="passWordSingIn" type="text">
-            <button disabled id="btnSubmit" type="submit" class="bg-pink-400 w-full rounded px-2 py-1.5 text-white cursor-pointer">Sign in</button>
-            
-            <p dir="auto">
-                <%= noteSingIn %>
-            </p>
-            <a href="/singup" class="block w-full text-center py-1.5 px-2">Sign up</a>
-        </form>
-    </div>
-</body>
+      <form
+        class="w-full max-w-xs bg-white shadow-md px-4 py-3 rounded-lg"
+        method="post"
+        action="/infoSignIn">
+        <div>
+          <h3 class="text-center text-2xl font-bold text-gray-600 mb-4">
+            Sign in
+          </h3>
+        </div>
+        <input
+          class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-2 border-solid border-pink-100 focus:border-pink-300 border-2 transition duration-200"
+          placeholder="Username"
+          oninput="typinggg()"
+          id="input1"
+          name="userNameSingIn"
+          type="text" />
+        <input
+          class="block w-full bg-gray-100 py-1.5 px-2 rounded mb-4 border-solid border-pink-100 focus:border-pink-300 border-2 transition duration-200"
+          placeholder="Password"
+          oninput="typinggg()"
+          id="input2"
+          name="passWordSingIn"
+          type="text" />
+        <button
+          disabled
+          id="btnSubmit"
+          type="submit"
+          class="bg-pink-400 w-full rounded px-2 py-1.5 text-white cursor-pointer">
+          Sign in
+        </button>
 
+        <p dir="auto"><%= noteSingIn %></p>
+        <a href="/singup" class="block w-full text-center py-1.5 px-2"
+          >Sign up</a
+        >
+      </form>
+    </div>
+  </body>
 </html>
