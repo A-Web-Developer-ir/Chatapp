@@ -2,20 +2,20 @@ const { Router } = require("express");
 const userSchema = require('../schemas/userSchema');
 const app = Router();
 
-  app.get("/singin", (req, res) => {
+  app.get("/signin", (req, res) => {
     if (req.query.RESULT === "no") {
       res.render("page/signin", {
-        noteSingIn:
+        noteSignIn:
           "Login failed.  If you have not registered before, you can register with this link:",
       });
     } else {
-      res.render("page/signin", { noteSingIn: "" });
+      res.render("page/signin", { noteSignIn: "" });
     }
   });
 
-  app.post("/infoSingIn", async(req, res) => {
-    const user = req.body.userNameSingIn,
-      passWord = req.body.passWordSingIn;
+  app.post("/infoSignIn", async(req, res) => {
+    const user = req.body.userNameSignIn,
+      passWord = req.body.passWordSignIn;
 
     const result = await userSchema.find({});
 
@@ -34,7 +34,7 @@ const app = Router();
       req.session.username = user;
       res.redirect("/chatroom");
     } else {
-      res.redirect("/singin?RESULT=no");
+      res.redirect("/signin?RESULT=no");
     }
   });
   

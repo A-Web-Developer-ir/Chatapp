@@ -2,19 +2,19 @@ const { Router } = require('express');
 const userSchema = require('../schemas/userSchema');
 const app = Router();
 
-    app.get("/singup", (req, res) => {
+    app.get("/signup", (req, res) => {
         if (req.query.RESULT === "yes") {
-            res.render("page/signup", { noteSingUp: "Registration successful. Now you can login with this link."})
+            res.render("page/signup", { noteSignUp: "Registration successful. Now you can login with this link."})
         } if (req.query.RESULT === "no") {
-            res.render("page/signup", { noteSingUp: "Registration failed. Someone already exists with this username."})
+            res.render("page/signup", { noteSignUp: "Registration failed. Someone already exists with this username."})
         } else {
-            res.render("page/signup", { noteSingUp: ""})
+            res.render("page/signup", { noteSignUp: ""})
         }
     })
 
-    app.post("/infoSingUp", async(req, res) => {
-        const user = req.body.userNameSingUp,
-            passWord = req.body.passWordSingUp;
+    app.post("/infoSignUp", async(req, res) => {
+        const user = req.body.userNameSignUp,
+            passWord = req.body.passWordSignUp;
 
             const result = await userSchema.find({});
 
@@ -25,12 +25,12 @@ const app = Router();
                 }
                 const checkUser = users.includes(user);
                 if (checkUser) {
-                    res.redirect("/singup?RESULT=no")
+                    res.redirect("/signup?RESULT=no")
                 } else {
                     const userrr = new userSchema({ user: `${user}`, passWord: `${passWord}` })
                     await userrr.save()
 
-                    res.redirect("/singup?RESULT=yes")
+                    res.redirect("/signup?RESULT=yes")
                 }
     })
     module.exports = app;
