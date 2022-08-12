@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96fa448d-c633-4ac7-8c0a-346f7fc7fe2c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/singIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/signIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/singUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/signUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/page/signin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/page/signin.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/page/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/page/signup.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     "javascript.nodejs.core.library.typings.version": "16.11.47",
     "last_opened_file_path": "C:/Users/aliab_xv82dff/Desktop/chatapp",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -69,7 +69,9 @@
       <workItem from="1659706795213" duration="783000" />
       <workItem from="1659727121062" duration="493000" />
       <workItem from="1659727631219" duration="23000" />
-      <workItem from="1660157965805" duration="2296000" />
+      <workItem from="1660157965805" duration="3816000" />
+      <workItem from="1660291862747" duration="7000" />
+      <workItem from="1660305293184" duration="1661000" />
     </task>
     <servers />
   </component>
